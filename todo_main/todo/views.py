@@ -28,7 +28,7 @@ def removetask(request, pk):
 
 def edittask(request, pk):
     get_task = get_object_or_404(Task, pk=pk)
-    if request.method == "POST":
+    if request.method == 'POST':
         new_task = request.POST['task']
         get_task.task = new_task
         get_task.save()
@@ -38,9 +38,4 @@ def edittask(request, pk):
             'get_task': get_task,
         }
     return render(request, 'edittask.html', context)
-    # 
-    # # task.edit()
-    # task.save()
-    # return redirect('home') 
-
-# from .forms import TaskForm  # You need to create a form for editing tasks
+# You need to create a form for editing tasks
