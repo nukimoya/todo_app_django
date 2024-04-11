@@ -7,4 +7,5 @@ urlpatterns = [
     path('mark_undone/<int:pk>/', views.mark_undone, name = 'mark_undone'),
     path('removeTask/<int:pk>/', views.removetask, name = 'removetask'),
     path('edittask/<int:pk>/', views.edittask, name = 'edittask'),
+    path('completed/<int:pk>/', views.completed, name = 'completed'),
 ]

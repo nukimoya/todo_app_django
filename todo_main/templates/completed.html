@@ -19,10 +19,9 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
         <div class=" row">
             <h3 class="pt-2 text-center">Django ToDo App</h3>
-            <h2 class="pt-2 text-center">Edit Task</h2>
+            <h2 class="pt-2 text-center">Completed Tasks</h2>
             <nav class="container col-md-2 col-lg-2 card m-1 bg-info-subtle" style="border: none;">
                 <div class="body" style="margin: 30px;">
                     <a href="{% url 'home' %}" class="btn btn-info" style="width: 70%;">To Do List</a>
@@ -34,17 +33,27 @@
                     <a href="" class="btn btn-info" style="width: 70%; justify-self: center;">Archived</a>
                 </div>
             </nav>
-            <div class="col-md-9 pt-5">
-                <form action="{% url 'edittask' get_task.pk %}" method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <span style="display: flex;">
-                            <input type="text" name="task" class="form-control" placeholder="Update the Task" value="{{ get_task.task }}">
-                            <button type="submit" class="btn btn-primary" style="width: 200px;"><i class="fa fa-plus"></i> Update</button>
+        
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-md-9" style="height: 450px; overflow: scroll; margin-left: 30px;">
+            <h4>My Day</h4>
+            <p class="text-muted">{% now "jS F Y" %}</p>
+            <div class="mine">
+                <!-- List of all the tasks that have completed -->
+                {% for task in completed %}
+                <div class="card m-1">
+                    <div class="card-body">
+                        {{ task.task }}
+                        <span style="position: relative; float: right;">
+                            <a href="{% url 'mark_undone' task.pk %}" class="btn btn-danger"><i class="fa fa-check"></i> Mark as Undone</a>
+                            <a href="{% url 'removetask' task.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <!-- <a class="btn btn-primary"><i class="fa fa-pencil"></i></a> -->
                         </span>
                     </div>
-                </form>
+                </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
 </body>
 </html>

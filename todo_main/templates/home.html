@@ -19,12 +19,25 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class=" row">
         <h3 class="pt-5 text-center">Django ToDo App</h3>
-        <div class="row">
+        <nav class="container col-md-2 col-lg-2 card m-1 bg-info-subtle" style="border: none;">
+            <div class="body" style="margin: 30px;">
+                <a href="{% url 'home' %}" class="btn btn-info" style="width: 70%;">To Do List</a>
+            </div>
+            <div class="body" style="margin: 30px; margin-top: 0px;">
+                <a href="{% url 'completed' %}" class="btn btn-info" style="width: 70%; justify-self: center;">Completed</a>
+            </div>
+            <div class="body" style="margin: 30px; margin-top: 0px;">
+                <a href="" class="btn btn-info" style="width: 70%; justify-self: center;">Archived</a>
+            </div>
+        </nav>
+    
+    <div class="container col-md-9 col-lg-9">
+        <div class="my">
             <h4>My Day</h4>
             <p class="text-muted">{% now "jS F Y" %}</p>
-            <div class="col-md-7 col-lg-7" style="height: 450px; overflow: scroll;">
+            <div class="col-md-12 col-lg-7" style="height: 450px; overflow: scroll;">
                 <!-- List of all the tasks for the day -->
                 {% for task in tasks %}
                 <div class="card m-1">
@@ -40,9 +53,9 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="col-md-5 col-lg-5">
+            <!-- <div class="col-md-5 col-lg-5">
                 <h5>Completed Tasks</h5>
-                <!-- List of all the tasks that have completed -->
+                <!-- List of all the tasks that have completed
                 {% for task in completed %}
                 <div class="card m-1">
                     <div class="card-body">
@@ -50,12 +63,12 @@
                         <span style="position: relative; float: right;">
                             <a href="{% url 'mark_undone' task.pk %}" class="btn btn-danger"><i class="fa fa-check"></i> Mark as Undone</a>
                             <a href="{% url 'removetask' task.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <!-- <a class="btn btn-primary"><i class="fa fa-pencil"></i></a> -->
+                            <!-- <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
                 {% endfor %}
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6 p-0" style="position: absolute; bottom: 50px;">
@@ -71,6 +84,7 @@
                 </form>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>
