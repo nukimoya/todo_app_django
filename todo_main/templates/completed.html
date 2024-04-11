@@ -30,7 +30,7 @@
                     <a href="{% url 'completed' %}" class="btn btn-info" style="width: 70%; justify-self: center;">Completed</a>
                 </div>
                 <div class="body" style="margin: 30px; margin-top: 0px;">
-                    <a href="" class="btn btn-info" style="width: 70%; justify-self: center;">Archived</a>
+                    <a href="{% url 'archived' %}" class="btn btn-info" style="width: 70%; justify-self: center;">Archived</a>
                 </div>
             </nav>
         
@@ -46,7 +46,7 @@
                         {{ task.task }}
                         <span style="position: relative; float: right;">
                             <a href="{% url 'mark_undone' task.pk %}" class="btn btn-danger"><i class="fa fa-check"></i> Mark as Undone</a>
-                            <a href="{% url 'removetask' task.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="{% url 'archived' task.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             <!-- <a class="btn btn-primary"><i class="fa fa-pencil"></i></a> -->
                         </span>
                     </div>
