@@ -28,3 +28,7 @@ def archived(request):
         'archived': archived,
     }
     return render(request, 'archived.html', context)
+
+def my_view(request):
+    return render(request, 'my_template.html', {'current_page':'page_name'})
+   

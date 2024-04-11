@@ -59,6 +59,7 @@ def unarchive(request, pk):
     task.save()
     return redirect('home')
     
+ 
 def completed(request):
     task = get_object_or_404(Task, pk=pk)
     completed = Task.objects.filter(is_completed = True)
