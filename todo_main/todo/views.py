@@ -57,7 +57,7 @@ def unarchive(request, pk):
     task = get_object_or_404(Task, pk=pk)
     task.is_archived = False
     task.save()
-    return redirect('home')
+    return redirect('archived')
     
  
 def completed(request):
